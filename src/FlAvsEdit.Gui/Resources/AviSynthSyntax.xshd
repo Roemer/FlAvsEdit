@@ -1,0 +1,82 @@
+﻿<SyntaxDefinition name="AviSynth"
+        xmlns="http://icsharpcode.net/sharpdevelop/syntaxdefinition/2008">
+
+  <Color name="InternalFunction" foreground="Teal" fontWeight="bold" />
+  <Color name="UserFunction" foreground="#8000FF" fontWeight="bold" />
+  <Color name="InternalFilter" foreground="Navy" fontWeight="bold" />
+  <Color name="ExternalFilter" foreground="#0080C0" />
+  <Color name="Comment" foreground="Green" />
+  <Color name="Type" foreground="Blue" />
+  <Color name="String" foreground="Purple" />
+  <Color name="Number" foreground="Teal" />
+  <Color name="Keyword" foreground="Indigo" fontWeight="bold" />
+
+  <!-- This is the main ruleset. -->
+  <RuleSet ignoreCase="true">
+    <Span color="Comment" begin="#" />
+    <Span color="Comment" multiline="true" begin="/\*" end="\*/" />
+    <Span color="Comment" multiline="true" begin="\[\*" end="\*\]" />
+
+    <Keywords color="Type">
+      <Word>bool</Word>
+      <Word>clip</Word>
+      <Word>float</Word>
+      <Word>int</Word>
+      <Word>string</Word>
+      <Word>val</Word>
+    </Keywords>
+
+    <Span color="String" multiline="false">
+      <Begin>"</Begin>
+      <End>"</End>
+    </Span>
+
+    <Span color="String" multiline="true">
+      <Begin>"""</Begin>
+      <End>"""</End>
+    </Span>
+
+    <!-- Digits -->
+    <Rule color="Number">
+      \b0[xX][0-9a-fA-F]+  # hex number
+      |    \b
+      (    \d+(\.[0-9]+)?   #number with optional floating point
+      |    \.[0-9]+         #or just starting with floating point
+      )
+      ([eE][+-]?[0-9]+)? # optional exponent
+    </Rule>
+
+    <Keywords color="Keyword">
+      <Word>catch</Word>
+      <Word>else</Word>
+      <Word>false</Word>
+      <Word>function</Word>
+      <Word>global</Word>
+      <Word>last</Word>
+      <Word>no</Word>
+      <Word>return</Word>
+      <Word>true</Word>
+      <Word>try</Word>
+      <Word>yes</Word>
+      <Word>__END__</Word>
+    </Keywords>
+
+    <Keywords color="InternalFunction">
+      <Word>Eval</Word>
+      <Word>Import</Word>
+    </Keywords>
+
+    <Keywords color="UserFunction">
+      <Word>InsertBlank</Word>
+      <Word>ResizeToReference</Word>
+    </Keywords>
+
+    <Keywords color="InternalFilter">
+      <Word>AviSource</Word>
+      <Word>Invert</Word>
+      <Word>Subtitle</Word>
+      <Word>Trim</Word>
+    </Keywords>
+
+  </RuleSet>
+</SyntaxDefinition>

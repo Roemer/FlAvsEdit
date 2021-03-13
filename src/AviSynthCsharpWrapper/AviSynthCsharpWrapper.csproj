@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="x86\" />
+    <Folder Include="x64\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\AviSynthCppWrapper\bin\Debug\Win32\AviSynthCppWrapper.dll" Link="x86\AviSynthCppWrapper.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\AviSynthCppWrapper\bin\Debug\x64\AviSynthCppWrapper.dll" Link="x64\AviSynthCppWrapper.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="5.0.2" />
+  </ItemGroup>
+
+</Project>
